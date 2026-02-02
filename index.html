@@ -1,0 +1,918 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>MEU PORTIFOLIO</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="shortcut icon" href="/Images/ft_profissional-removebg-preview.png" type="image/x-icon">
+
+    
+<script>
+tailwind.config = {
+    darkMode: 'class',
+    theme: {
+        extend: {
+            colors: {
+                primary: '#0067D4',
+                secondary: '#0B0D12',
+                dark: '#0B0D12',
+                darker: '#0F1F3D',
+            },
+            fontFamily: {
+                sans: ['Inter', 'sans-serif'],
+            },
+        }
+    }
+}
+</script>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+:root{
+    --primary: #0067D4;
+    --accent-dark: #004A9F;
+
+    --bg: #0B0D12;
+    --text: #ffffff;
+    --text-muted: rgba(255,255,255,0.72);
+
+    --darker-bg: #0F1F3D;
+
+    --card-bg-gradient: linear-gradient(145deg, #0B0D12, #0F1F3D);
+    --card-surface: #0F1420;
+    --card-border: #162B55;
+
+    --input-bg: #0F1F3D;
+    --input-border: #1F3F7A;
+
+    --nav-bg: rgba(11,13,18,0.75);
+    --footer-bg: linear-gradient(135deg, #0B0D12, #0F1F3D);
+
+    --icon-color: #ffffff;
+    --icon-filter: invert(1);
+}
+
+html.light{
+    --bg: #F2F7FF;
+    --text: #0A0A0A;
+    --text-muted: rgba(0,0,0,0.65);
+
+    --primary: #0067D4;
+    --accent-dark: #004A9F;
+
+    --darker-bg: #DCEBFF;
+
+    --card-bg-gradient: linear-gradient(145deg, #ffffff, #DCEBFF);
+    --card-surface: #ffffff;
+    --card-border: rgba(0,103,212,0.45);
+
+    --input-bg: #ffffff;
+    --input-border: rgba(0,103,212,0.55);
+
+    --nav-bg: rgba(242,247,255,0.92);
+    --footer-bg: linear-gradient(135deg, #0067D4, #004A9F);
+
+    --icon-color: #000000;
+    --icon-filter: invert(0);
+}
+
+html, body{
+    height: 100%;
+}
+
+body{
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg);
+    color: var(--text);
+    transition: background-color 220ms ease, color 220ms ease;
+}
+
+.gradient-text{
+    background: linear-gradient(90deg, var(--primary), var(--accent-dark));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.card-hover{
+    transition: all 0.3s ease;
+}
+
+.card-hover:hover{
+    transform: translateY(-5px);
+    box-shadow: 0 14px 32px rgba(0,103,212,0.25);
+}
+
+.project-card{
+    background: var(--card-bg-gradient);
+    box-shadow: 6px 6px 20px rgba(0,0,0,0.35),
+                -6px -6px 20px rgba(0,103,212,0.15);
+    transition: all 220ms ease;
+}
+
+nav.fixed{
+    background: var(--nav-bg) !important;
+    backdrop-filter: blur(12px);
+}
+
+.nav-link{
+    position: relative;
+}
+
+.nav-link::after{
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -2px;
+    left: 0;
+    background: linear-gradient(90deg, var(--primary), var(--accent-dark));
+    transition: width 0.3s ease;
+}
+
+.nav-link:hover::after,
+.nav-link.active::after{
+    width: 100%;
+}
+
+.timeline-item::before{
+    content: '';
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    left: -7.5px;
+    top: 0;
+    background: linear-gradient(135deg, var(--primary), var(--accent-dark));
+}
+
+.skill-bar{
+    height: 8px;
+    border-radius: 4px;
+    background-color: var(--darker-bg);
+}
+
+.skill-progress{
+    height: 100%;
+    border-radius: 4px;
+    background: linear-gradient(90deg, var(--primary), var(--accent-dark));
+    transition: width 1s ease-in-out;
+}
+
+.contact-input{
+    background-color: var(--input-bg);
+    border: 1px solid var(--input-border);
+    color: var(--text);
+    transition: all 0.3s ease;
+}
+
+.contact-input:focus{
+    border-color: var(--primary);
+    box-shadow: 0 0 0 4px rgba(0,103,212,0.22);
+    outline: none;
+}
+
+.btn-primary{
+    background: linear-gradient(90deg, var(--primary), var(--accent-dark));
+    color: #ffffff;
+    transition: all 0.22s ease;
+}
+
+.btn-primary:hover{
+    transform: translateY(-2px);
+    box-shadow: 0 8px 22px rgba(0,103,212,0.4);
+}
+
+.social-icon{
+    transition: all 0.2s ease;
+}
+
+.social-icon,
+.icon-vscode,
+.icon-linux{
+    color: var(--icon-color);
+    fill: var(--icon-color);
+}
+
+.icon-vscode img,
+.icon-linux img{
+    filter: var(--icon-filter);
+}
+
+.social-icon:hover{
+    transform: translateY(-3px);
+    color: var(--accent-dark);
+}
+
+@keyframes float{
+    0%,100%{ transform: translateY(0); }
+    50%{ transform: translateY(-10px); }
+}
+
+.floating{
+    animation: float 3s ease-in-out infinite;
+}
+
+.theme-toggle{
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: .5rem;
+    padding: .35rem;
+    border-radius: .5rem;
+    cursor: pointer;
+    background: transparent;
+    border: 1px solid rgba(255,255,255,0.12);
+    color: var(--text);
+    transition: all .15s ease;
+}
+
+.theme-toggle:hover{
+    transform: translateY(-2px);
+}
+
+.theme-toggle svg{
+    width: 20px;
+    height: 20px;
+}
+
+footer{
+    background: var(--footer-bg);
+    color: #ffffff;
+}
+
+.bg-dark{ background-color: var(--bg) !important; }
+.bg-darker{ background-color: var(--darker-bg) !important; }
+
+.text-slate-100,
+.text-slate-200{ color: var(--text) !important; }
+
+.text-slate-300,
+.text-slate-400{ color: var(--text-muted) !important; }
+
+.bg-slate-800{ background-color: var(--card-surface) !important; }
+.border-slate-800{ border-color: var(--card-border) !important; }
+.bg-slate-700{ background-color: rgba(0,103,212,0.15) !important; }
+</style>
+
+
+
+
+
+
+</head>
+<body class="bg-dark text-slate-200">
+
+    
+    <nav class="fixed w-full bg-darker/80 backdrop-blur-sm z-50 shadow-lg">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <a href="#" class="text-2xl font-bold gradient-text">Portfolio</a>
+
+                <div class="md:hidden">
+                    <button id="menu-toggle" class="text-slate-200 hover:text-primary focus:outline-none">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+
+                
+                <div class="hidden md:flex items-center space-x-6">
+                    <a href="#home" class="nav-link active">Início</a>
+                    <a href="#about" class="nav-link">Sobre</a>
+                    <a href="#skills" class="nav-link">Habilidades</a>
+                    <a href="#projects" class="nav-link">Projetos</a>
+                    <a href="#contact" class="nav-link">Contato</a>
+
+                    
+                    <button id="theme-toggle" class="theme-toggle" aria-label="Alternar tema" aria-pressed="false" title="Alternar tema">
+                        
+                        <svg id="icon-moon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                            <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        
+                        <svg id="icon-sun" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="display:none;">
+                            <circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
+            
+            <div id="mobile-menu" class="hidden md:hidden mt-4 pb-2">
+                
+                <div class="flex items-center justify-between mb-3 px-2">
+                    <div class="flex space-x-3">
+                        <a href="#home" class="block py-2 nav-link active">Início</a>
+                        <a href="#about" class="block py-2 nav-link">Sobre</a>
+                        <a href="#skills" class="block py-2 nav-link">Habilidades</a>
+                        <a href="#projects" class="block py-2 nav-link">Projetos</a>
+                        <a href="#contact" class="block py-2 nav-link">Contato</a>
+                    </div>
+                    <div>
+                        <button id="theme-toggle-mobile" class="theme-toggle" aria-label="Alternar tema" title="Alternar tema">
+                            <svg id="icon-moon-mobile" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                            <svg id="icon-sun-mobile" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="display:none;">
+                                <circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    
+    <section id="home" class="min-h-screen flex items-center pt-20">
+        <div class="container mx-auto px-6 flex flex-col md:flex-row items-center justify-between">
+            <div class="md:w-1/2 mb-12 md:mb-0">
+                <h1 class="text-4xl md:text-6xl font-bold mb-4">Olá! Eu sou <span class="gradient-text">André Luiz Matos Pereira</span></h1>
+                <h2 class="text-2xl md:text-3xl font-semibold mb-6 text-slate-300">Frontend Developer</h2>
+                <p class="text-lg mb-8 text-slate-400 max-w-lg">
+                    Atualmente, tenho 20 anos, sou Desenvolvedor Front-End,
+                    estudante de Gestão de Tecnologia da Informação e Técnico em Informática.
+                </p>
+                <div class="flex space-x-4">
+                    <a href="#contact" class="px-6 py-3 rounded-full btn-primary font-medium">Contrate-me</a>
+                    <a href="#projects" class="px-6 py-3 rounded-full border border-primary text-primary font-medium hover:bg-primary/10 transition">Ver Projetos</a>
+                </div>
+
+                <div class="flex mt-8 space-x-4">
+                   <a href="https://github.com/drezinnxs10" target="_blank" 
+                       class="social-icon text-xl w-10 h-10 flex items-center justify-center rounded-full bg-slate-800 hover:bg-primary">
+                      <i class="fab fa-github"></i>
+                   </a>
+
+                   <a href="https://linkedin.com/in/andré-luiz-matos-pereira-633244282/" target="_blank" 
+                      class="social-icon text-xl w-10 h-10 flex items-center justify-center rounded-full bg-slate-800 hover:bg-blue-600">
+                     <i class="fab fa-linkedin-in"></i>
+                   </a>
+
+                     <a href="https://www.instagram.com/_drezinnxs10" target="_blank" 
+                       class="social-icon text-xl w-10 h-10 flex items-center justify-center rounded-full bg-slate-800 hover:bg-primary">
+                      <i class="fab fa-instagram"></i>
+                   </a>
+                </div>
+            </div>
+            <div class="md:w-1/2 flex justify-center">
+                <div class="relative w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96">
+                    <div class="absolute inset-0 rounded-full bg-gradient-to-br from-primary to-secondary blur-xl opacity-20"></div>
+                    <img src="Images/ft_profissional-removebg-preview.png" 
+                         alt="Profile" 
+                         class="relative w-full h-full object-cover rounded-full border-4 border-slate-800 floating">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    
+    <section id="about" class="py-20 bg-darker">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4"> Sobre <span class="gradient-text">Mim</span></h2>
+                <div class="w-20 h-1 bg-gradient-to-r from-primary to-secondary mx-auto"></div>
+            </div>
+
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/3 mb-8 md:mb-0 flex justify-center">
+                    <div class="relative w-64 h-64">
+                        <div class="absolute inset-0 rounded-2xl bg-gradient-to-br from-primary to-secondary blur-xl opacity-20"></div>
+                        <img src="Images/ft_profissional-removebg-preview.png" 
+                             alt="About" 
+                             class="relative w-full h-full object-cover rounded-2xl border-4 border-slate-800">
+                    </div>
+                </div>
+
+                <div class="md:w-2/3 md:pl-12">
+                    <h3 class="text-2xl font-bold mb-6">Quem sou eu?</h3>
+                    <p class="text-slate-400 mb-6">
+                        Sou um desenvolvedor front-end apaixonado, novato na criação de aplicações web modernas.
+                        Tenho conhecimento em JavaScript, incluindo React, TypeScript e frameworks CSS modernos. 
+                    </p>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                        <div>
+                            <h4 class="font-semibold mb-2">Nome: <span class="text-slate-300">André Luiz Matos Pereira</span></h4>
+                            <h4 class="font-semibold mb-2">Idade: <span class="text-slate-300">20</span></h4>
+                        </div>
+                        
+                        <div>
+                            <h4 class="font-semibold mb-2">Email: <span class="text-slate-300">andre.lmpereira1205@gmail.com</span></h4>
+                            <h4 class="font-semibold mb-2">Região: <span class="text-slate-300">São Paulo, SP, Brasil</span></h4>
+                        </div>
+                    </div>
+
+                    <div class="flex space-x-4">
+                        <a href="CV/ANDRÉ LUIZ MATOS PEREIRA-CV.pdf" 
+                        download="ANDRÉ-LUIZ-MATOS-PEREIRA-CV.pdf" 
+                        class="px-6 py-3 rounded-full btn-primary font-medium">
+                        Baixar Currículo
+                        </a>
+                        
+                        <a href="#contact" class="px-6 py-3 rounded-full border border-primary text-primary font-medium hover:bg-primary/10 transition">Contate-me</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    
+    <section id="skills" class="py-20 bg-dark">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4"> Minhas <span class="gradient-text">Habilidades</span></h2>
+                <div class="w-20 h-1 bg-gradient-to-r from-primary to-secondary mx-auto"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                <div>
+                    <h3 class="text-2xl font-bold mb-6">Habilidades Técnicas</h3>
+                    <div class="space-y-6">
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="font-medium">HTML/CSS</span>
+                                <span>90%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 95%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="font-medium">JavaScript</span>
+                                <span>70%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 70%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="font-medium">React</span>
+                                <span>45%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 45%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="font-medium">TypeScript</span>
+                                <span>50%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 50%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <h3 class="text-2xl font-bold mb-6">Habilidades Profissionais</h3>
+                    <div class="space-y-6">
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="font-medium">Comunicação</span>
+                                <span>90%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 90%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="font-medium">Trabalho em equipe</span>
+                                <span>85%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 85%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="font-medium">Solução de problemas</span>
+                                <span>80%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 95%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="font-medium">Criatividade</span>
+                                <span>70%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 75%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            
+            <div class="mt-16">
+                <h3 class="text-2xl font-bold mb-8 text-center"> Ferramentas & <span class="gradient-text">Tecnologias</span></h3>
+                <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6">
+                    <div class="flex flex-col items-center p-6 bg-slate-800 rounded-lg card-hover">
+                        <i class="fab fa-html5 text-4xl text-orange-500 mb-2"></i>
+                        <span>HTML5</span>
+                    </div>
+                    <div class="flex flex-col items-center p-6 bg-slate-800 rounded-lg card-hover">
+                        <i class="fab fa-css3-alt text-4xl text-blue-500 mb-2"></i>
+                        <span>CSS3</span>
+                    </div>
+                    <div class="flex flex-col items-center p-6 bg-slate-800 rounded-lg card-hover">
+                        <i class="fab fa-js text-4xl text-yellow-400 mb-2"></i>
+                        <span>JavaScript</span>
+                    </div>
+                    <div class="flex flex-col items-center p-6 bg-slate-800 rounded-lg card-hover">
+                        <i class="fab fa-react text-4xl text-blue-400 mb-2"></i>
+                        <span>React</span>
+                    </div>
+                    <div class="flex flex-col items-center p-6 bg-slate-800 rounded-lg card-hover">
+                        <i class="fab fa-node-js text-4xl text-green-500 mb-2"></i>
+                        <span>Node.js</span>
+                    </div>
+                    <div class="flex flex-col items-center p-6 bg-slate-800 rounded-lg card-hover">
+                        <i class="fas fa-database text-4xl text-blue-400 mb-2"></i>
+                        <span>MySQL</span>
+                    </div>
+                    <div class="flex flex-col items-center p-6 bg-slate-800 rounded-lg card-hover">
+                        <i class="fas fa-code text-4xl text-indigo-400 mb-2"></i>
+                        <span>C</span>
+                    </div>
+                    <div class="flex flex-col items-center p-6 bg-slate-800 rounded-lg card-hover">
+                        <i class="fab fa-wordpress text-4xl text-blue-500 mb-2"></i>
+                        <span>WordPress</span>
+                    </div>
+                    <div class="flex flex-col items-center p-6 bg-slate-800 rounded-lg card-hover">
+                        <i class="fas fa-terminal text-4xl text-gray-300 mb-2"></i>
+                        <span>VS Code</span>
+                    </div>
+                    <div class="flex flex-col items-center p-6 bg-slate-800 rounded-lg card-hover">
+                        <i class="fab fa-linux text-4xl text-white mb-2"></i>
+                        <span>Linux</span>
+                    </div>
+                    <div class="flex flex-col items-center p-6 bg-slate-800 rounded-lg card-hover">
+                        <i class="fas fa-microchip text-4xl text-cyan-400 mb-2"></i>
+                        <span>Arduino</span>
+                    </div>
+                    <div class="flex flex-col items-center p-6 bg-slate-800 rounded-lg card-hover">
+                        <i class="fab fa-python text-4xl text-yellow-400 mb-2"></i>
+                        <span>Python</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    
+    <section id="projects" class="py-20 bg-darker">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4"> Meus <span class="gradient-text">Projetos</span></h2>
+                <div class="w-20 h-1 bg-gradient-to-r from-primary to-secondary mx-auto"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <div class="project-card rounded-xl overflow-hidden card-hover">
+                    <div class="h-48 overflow-hidden">
+                        <img src="Images/projeto2.jpg" 
+                             alt="Project 1" 
+                             class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Mario Game</h3>
+                        <p class="text-slate-400 mb-4">Meu primeiro jogo utilizando conceitos básicos de JavaScript</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-3 py-1 bg-slate-700 rounded-full text-sm">HTML</span>
+                            <span class="px-3 py-1 bg-slate-700 rounded-full text-sm">Bootstrap</span>
+                            <span class="px-3 py-1 bg-slate-700 rounded-full text-sm">JavaScript</span>
+                        </div>
+                        <div class="flex space-x-3">
+                            <a href="https://drezinnxs10.github.io/Mario_game" target="_blank" class="text-primary hover:text-secondary">
+                                <i class="fab fa-github"></i> Projeto
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                
+
+                
+                <div class="project-card rounded-xl overflow-hidden card-hover">
+                    <div class="h-48 overflow-hidden">
+                        <img src="Images/projeto1.jpeg" alt="Project 2" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">One Pages</h3>
+                        <p class="text-slate-400 mb-4">Site com tema fã club do Homem Aranha, desenvolvido no SENAC, aplicando conceitos gerais de HTML e CSS</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-3 py-1 bg-slate-700 rounded-full text-sm">CSS</span>
+                            <span class="px-3 py-1 bg-slate-700 rounded-full text-sm">HTML</span>
+                        </div>
+                        <div class="flex space-x-3">
+                            <a href="https://drezinnxs10.github.io/Spider/" target="_blank" class="text-primary hover:text-secondary">
+                                <i class="fab fa-github"></i> Projeto
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                
+                <div class="project-card rounded-xl overflow-hidden card-hover">
+                    <div class="h-48 overflow-hidden">
+                        <img src="Images/Projeto site.jpg" alt="Project 3" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Lading Page</h3>
+                        <p class="text-slate-400 mb-4">Primeiro projeto desenvolvido para um cliente real, um breve site educacional de vendas para apresentação escolar. O site contém conceitos avançados de HTML e CSS e um pouco de JavaScript</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-3 py-1 bg-slate-700 rounded-full text-sm">JavaScript</span>
+                            <span class="px-3 py-1 bg-slate-700 rounded-full text-sm">HTML</span>
+                            <span class="px-3 py-1 bg-slate-700 rounded-full text-sm">CSS</span>
+                        </div>
+                        <div class="flex space-x-3">
+                            <a href="https://drezinnxs10.github.io/Lading_Pages/" target="_blank" class="text-primary hover:text-secondary">
+                                <i class="fab fa-github"></i> Projeto
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center mt-12">
+                <a href="#" class="px-8 py-3 rounded-full btn-primary font-medium inline-flex items-center">
+                    Comming Soon <i class="fas fa-arrow-right ml-2"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    
+    <section id="contact" class="py-20 bg-dark">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Entrem <span class="gradient-text">em contato</span></h2>
+                <div class="w-20 h-1 bg-gradient-to-r from-primary to-secondary mx-auto"></div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <div>
+                    <h3 class="text-2xl font-bold mb-6">Informações de contato</h3>
+                    <p class="text-slate-400 mb-8">
+                        Sinta-se à vontade para entrar em contato comigo caso tenha alguma dúvida ou oportunidade.
+                        Estou sempre aberto a discutir novos projetos, ideias criativas ou oportunidades
+                        de fazer parte da sua visão.
+                    </p>
+
+                    <div class="space-y-6">
+                        <div class="flex items-start">
+                            <div class="bg-slate-800 p-3 rounded-full mr-4">
+                                <i class="fas fa-map-marker-alt text-primary text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold mb-1">Região</h4>
+                                <p class="text-slate-400">São Paulo, Brasil</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start">
+                            <div class="bg-slate-800 p-3 rounded-full mr-4">
+                                <i class="fas fa-envelope text-primary text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold mb-1">Email</h4>
+                                <p class="text-slate-400">andre.lmpereira@gmail.com</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start">
+                            <div class="bg-slate-800 p-3 rounded-full mr-4">
+                                <i class="fas fa-phone-alt text-primary text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold mb-1">Telefone</h4>
+                                <p class="text-slate-400">+55 (11) 98979-5701</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-8">
+                        <h4 class="font-bold mb-4">Siga-me</h4>
+                        <div class="flex mt-8 space-x-4">
+                           <a href="https://github.com/drezinnxs10" target="_blank" 
+                               class="social-icon text-xl w-10 h-10 flex items-center justify-center rounded-full bg-slate-800 hover:bg-primary">
+                              <i class="fab fa-github"></i>
+                           </a>
+
+                           <a href="https://linkedin.com/in/andré-luiz-matos-pereira-633244282/" target="_blank" 
+                              class="social-icon text-xl w-10 h-10 flex items-center justify-center rounded-full bg-slate-800 hover:bg-blue-600">
+                             <i class="fab fa-linkedin-in"></i>
+                           </a>
+
+                             <a href="https://www.instagram.com/_drezinnxs10" target="_blank" 
+                               class="social-icon text-xl w-10 h-10 flex items-center justify-center rounded-full bg-slate-800 hover:bg-primary">
+                              <i class="fab fa-instagram"></i>
+                           </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <h3 class="text-2xl font-bold mb-6">Mande uma mensagem</h3>
+                    <form action="https://formspree.io/f/mkgvnwpg" method="POST">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label for="name" class="block mb-2 font-medium">Seu nome</label>
+                                <input type="text" id="name" name="name" class="w-full px-4 py-3 rounded-lg contact-input focus:outline-none" required>
+                            </div>
+                            <div>
+                                <label for="email" class="block mb-2 font-medium">Seu email</label>
+                                <input type="email" id="email" name="email" class="w-full px-4 py-3 rounded-lg contact-input focus:outline-none" required>
+                            </div>
+                        </div>
+                        <div>
+                            <label for="subject" class="block mb-2 font-medium">Assunto</label>
+                            <input type="text" id="subject" name="subject" class="w-full px-4 py-3 rounded-lg contact-input focus:outline-none" required>
+                        </div>
+                        <div>
+                            <label for="message" class="block mb-2 font-medium">Mensagem</label>
+                            <textarea id="message" name="message" rows="5" class="w-full px-4 py-3 rounded-lg contact-input focus:outline-none" required></textarea>
+                        </div>
+                        <button type="submit" class="px-8 py-3 rounded-full btn-primary font-medium w-full">
+                            Enviar mensagem <i class="fas fa-paper-plane ml-2"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    
+    <footer class="bg-darker py-12">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-6 md:mb-0">
+                    <a href="#" class="text-2xl font-bold gradient-text">Portfolio</a>
+                    <p class="text-slate-400 mt-2">© 2025 André Luiz Matos Pereira.</p>
+                </div>
+
+                <div class="flex mt-8 space-x-4">
+                   <a href="https://github.com/drezinnxs10" target="_blank" 
+                       class="social-icon text-xl w-10 h-10 flex items-center justify-center rounded-full bg-slate-800 hover:bg-primary">
+                      <i class="fab fa-github"></i>
+                   </a>
+
+                   <a href="https://linkedin.com/in/andré-luiz-matos-pereira-633244282/" target="_blank" 
+                      class="social-icon text-xl w-10 h-10 flex items-center justify-center rounded-full bg-slate-800 hover:bg-blue-600">
+                     <i class="fab fa-linkedin-in"></i>
+                   </a>
+
+                     <a href="https://www.instagram.com/_drezinnxs10" target="_blank" 
+                       class="social-icon text-xl w-10 h-10 flex items-center justify-center rounded-full bg-slate-800 hover:bg-primary">
+                      <i class="fab fa-instagram"></i>
+                   </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    
+    <button id="back-to-top" class="fixed bottom-8 right-8 w-12 h-12 bg-primary rounded-full flex items-center justify-center text-white shadow-lg hidden">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    
+    <script>
+        
+        const menuToggle = document.getElementById('menu-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        menuToggle.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    if (!mobileMenu.classList.contains('hidden')) {
+                        mobileMenu.classList.add('hidden');
+                    }
+                    document.querySelectorAll('.nav-link').forEach(link => link.classList.remove('active'));
+                    this.classList.add('active');
+                }
+            });
+        });
+
+        
+        window.addEventListener('scroll', () => {
+            const scrollPosition = window.scrollY;
+            document.querySelectorAll('section').forEach(section => {
+                const sectionTop = section.offsetTop - 100;
+                const sectionHeight = section.offsetHeight;
+                const sectionId = section.getAttribute('id');
+                if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+                    document.querySelectorAll('.nav-link').forEach(link => {
+                        link.classList.remove('active');
+                        if (link.getAttribute('href') === `#${sectionId}`) link.classList.add('active');
+                    });
+                }
+            });
+
+            const backToTopButton = document.getElementById('back-to-top');
+            if (scrollPosition > 300) backToTopButton.classList.remove('hidden');
+            else backToTopButton.classList.add('hidden');
+        });
+
+        document.getElementById('back-to-top').addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        
+        const animateSkillBars = () => {
+            const skillBars = document.querySelectorAll('.skill-progress');
+            const skillsSection = document.getElementById('skills');
+            if (!skillsSection) return;
+            const skillsSectionTop = skillsSection.offsetTop;
+            const windowHeight = window.innerHeight;
+            if (window.scrollY > skillsSectionTop - windowHeight + 200) {
+                skillBars.forEach(bar => {
+                    const width = bar.style.width;
+                    bar.style.width = '0';
+                    setTimeout(() => { bar.style.width = width; }, 120);
+                });
+                window.removeEventListener('scroll', animateSkillBars);
+            }
+        };
+        window.addEventListener('scroll', animateSkillBars);
+
+        
+        (function () {
+            const htmlEl = document.documentElement;
+            const desktopToggle = document.getElementById('theme-toggle');
+            const mobileToggle = document.getElementById('theme-toggle-mobile');
+
+            const iconSun = document.getElementById('icon-sun');
+            const iconMoon = document.getElementById('icon-moon');
+            const iconSunMobile = document.getElementById('icon-sun-mobile');
+            const iconMoonMobile = document.getElementById('icon-moon-mobile');
+
+            
+            const stored = localStorage.getItem('site-theme'); 
+            const initialTheme = (stored === 'light' || stored === 'dark') ? stored : 'dark';
+
+            function applyTheme(theme) {
+                if (theme === 'light') {
+                    htmlEl.classList.add('light');
+                    if (desktopToggle) desktopToggle.setAttribute('aria-pressed', 'true');
+                    if (iconSun) iconSun.style.display = 'block';
+                    if (iconMoon) iconMoon.style.display = 'none';
+                    if (iconSunMobile) iconSunMobile.style.display = 'block';
+                    if (iconMoonMobile) iconMoonMobile.style.display = 'none';
+                } else {
+                    htmlEl.classList.remove('light');
+                    if (desktopToggle) desktopToggle.setAttribute('aria-pressed', 'false');
+                    if (iconSun) iconSun.style.display = 'none';
+                    if (iconMoon) iconMoon.style.display = 'block';
+                    if (iconSunMobile) iconSunMobile.style.display = 'none';
+                    if (iconMoonMobile) iconMoonMobile.style.display = 'block';
+                }
+            }
+
+            applyTheme(initialTheme);
+
+            function toggleAndSave() {
+                const nowIsLight = htmlEl.classList.contains('light');
+                const next = nowIsLight ? 'dark' : 'light';
+                applyTheme(next);
+                localStorage.setItem('site-theme', next);
+            }
+
+            if (desktopToggle) desktopToggle.addEventListener('click', toggleAndSave);
+            if (mobileToggle) mobileToggle.addEventListener('click', function () {
+                toggleAndSave();
+                
+                if (!mobileMenu.classList.contains('hidden')) mobileMenu.classList.add('hidden');
+            });
+
+        })();
+    </script>
+</body>
+</html>
