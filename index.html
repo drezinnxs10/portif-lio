@@ -363,7 +363,7 @@ footer{
             <div class="md:w-1/2 flex justify-center">
                 <div class="relative w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96">
                     <div class="absolute inset-0 rounded-full bg-gradient-to-br from-primary to-secondary blur-xl opacity-20"></div>
-                    <img src="Images/foto.jpeg" 
+                    <img src="Images/foto-profissional.png" 
                          alt="Profile" 
                          class="relative w-full h-full object-cover rounded-full border-4 border-slate-800 floating">
                 </div>
@@ -372,55 +372,65 @@ footer{
     </section>
 
     
-    <section id="about" class="py-20 bg-darker">
-        <div class="container mx-auto px-6">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-4xl font-bold mb-4"> Sobre <span class="gradient-text">Mim</span></h2>
+   <section id="about" class="py-20 bg-darker">
+    <div class="container mx-auto px-8 flex justify-center">
+        <div class="max-w-3xl w-full text-center">
+
+            <div class="mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-6">
+                    Sobre <span class="gradient-text">Mim</span>
+                </h2>
                 <div class="w-20 h-1 bg-gradient-to-r from-primary to-secondary mx-auto"></div>
             </div>
 
-            <div class="flex flex-col md:flex-row items-center">
-                <div class="md:w-1/3 mb-8 md:mb-0 flex justify-center">
-                    <div class="relative w-64 h-64">
-                        <div class="absolute inset-0 rounded-2xl bg-gradient-to-br from-primary to-secondary blur-xl opacity-20"></div>
-                        <img src="Images/foto-profissional.png" 
-                             alt="About" 
-                             class="relative w-full h-full object-cover rounded-2xl border-4 border-slate-800">
-                    </div>
+            <h3 class="text-2xl font-bold mb-8">Quem sou eu?</h3>
+
+            <p class="text-slate-400 mb-8">
+                Sou um desenvolvedor front-end apaixonado por tecnologia e focado na criação de aplicações web modernas, funcionais e visualmente atrativas.
+                Estou no início da minha trajetória profissional, mas já possuo uma base sólida em JavaScript, além de experiência com React, TypeScript
+                e frameworks CSS modernos.
+                Tenho grande interesse em desenvolver interfaces intuitivas, responsivas e performáticas, sempre buscando aplicar boas práticas de código, organização
+                e usabilidade. Estou em constante aprendizado, evoluindo minhas habilidades técnicas para entregar soluções cada vez mais eficientes e alinhadas às necessidades dos usuários.
+            </p>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8 text-left md:text-center justify-center">
+                <div>
+                    <h4 class="font-semibold mb-2">
+                        Nome: <span class="text-slate-300">André Luiz Matos Pereira</span>
+                    </h4>
+                    <h4 class="font-semibold mb-2">
+                        Idade: <span class="text-slate-300">20</span>
+                    </h4>
                 </div>
-
-                <div class="md:w-2/3 md:pl-12">
-                    <h3 class="text-2xl font-bold mb-6">Quem sou eu?</h3>
-                    <p class="text-slate-400 mb-6">
-                        Sou um desenvolvedor front-end apaixonado, novato na criação de aplicações web modernas.
-                        Tenho conhecimento em JavaScript, incluindo React, TypeScript e frameworks CSS modernos. 
-                    </p>
-
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-                        <div>
-                            <h4 class="font-semibold mb-2">Nome: <span class="text-slate-300">André Luiz Matos Pereira</span></h4>
-                            <h4 class="font-semibold mb-2">Idade: <span class="text-slate-300">20</span></h4>
-                        </div>
-                        
-                        <div>
-                            <h4 class="font-semibold mb-2">Email: <span class="text-slate-300">andre.lmpereira1205@gmail.com</span></h4>
-                            <h4 class="font-semibold mb-2">Região: <span class="text-slate-300">São Paulo, SP, Brasil</span></h4>
-                        </div>
-                    </div>
-
-                    <div class="flex space-x-4">
-                        <a href="CV/andreluizmatospereiracv.pdf" 
-                        download="ANDRÉ-LUIZ-MATOS-PEREIRA-CV.pdf" 
-                        class="px-6 py-3 rounded-full btn-primary font-medium">
-                        Baixar Currículo
-                        </a>
-                        
-                        <a href="#contact" class="px-6 py-3 rounded-full border border-primary text-primary font-medium hover:bg-primary/10 transition">Contate-me</a>
-                    </div>
+                
+                <div>
+                    <h4 class="font-semibold mb-2">
+                        Email: <span class="text-slate-300">andre.lmpereira1205@gmail.com</span>
+                    </h4>
+                    <h4 class="font-semibold mb-2">
+                        Região: <span class="text-slate-300">São Paulo, SP, Brasil</span>
+                    </h4>
                 </div>
             </div>
+
+            <div class="flex justify-center space-x-4">
+                <a href="CV/andreluizmatospereiracv.pdf" 
+                   download="ANDRÉ-LUIZ-MATOS-PEREIRA-CV.pdf" 
+                   class="px-6 py-3 rounded-full btn-primary font-medium">
+                   Baixar Currículo
+                </a>
+                
+                <a href="#contact" 
+                   class="px-6 py-3 rounded-full border border-primary text-primary font-medium hover:bg-primary/10 transition">
+                   Contate-me
+                </a>
+            </div>
+
         </div>
-    </section>
+    </div>
+</section>
+
+
 
     
     <section id="skills" class="py-20 bg-dark">
@@ -585,20 +595,20 @@ footer{
                 
                 <div class="project-card rounded-xl overflow-hidden card-hover">
                     <div class="h-48 overflow-hidden">
-                        <img src="Images/projeto2.jpg" 
+                        <img src="Images/block run.png" 
                              alt="Project 1" 
                              class="w-full h-full object-cover">
                     </div>
                     <div class="p-6">
-                        <h3 class="text-xl font-bold mb-2">Mario Game</h3>
-                        <p class="text-slate-400 mb-4">Meu primeiro jogo utilizando conceitos básicos de JavaScript</p>
+                        <h3 class="text-xl font-bold mb-2">Block Run</h3>
+                        <p class="text-slate-400 mb-4">Meu primeiro jogo utilizando conceitos básicos de JavaScript (ainda em desenvolvimento)</p>
                         <div class="flex flex-wrap gap-2 mb-4">
                             <span class="px-3 py-1 bg-slate-700 rounded-full text-sm">HTML</span>
                             <span class="px-3 py-1 bg-slate-700 rounded-full text-sm">Bootstrap</span>
                             <span class="px-3 py-1 bg-slate-700 rounded-full text-sm">JavaScript</span>
                         </div>
                         <div class="flex space-x-3">
-                            <a href="https://drezinnxs10.github.io/Mario_game" target="_blank" class="text-primary hover:text-secondary">
+                            <a href="https://drezinnxs10.github.io/Basic_Game/" target="_blank" class="text-primary hover:text-secondary">
                                 <i class="fab fa-github"></i> Projeto
                             </a>
                         </div>
